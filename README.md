@@ -21,11 +21,8 @@ Menampilkan profil, pengalaman, sertifikat, keterampilan, serta proyek-proyek ya
 # 📸 Tampilan Website
 
 <p align="center">
-<img src="./public/portfolio-preview.png" width="100%">
+<img src="../assets/portfolio-preview.png" width="100%">
 </p>
-
-> Ganti `portfolio-preview.png` dengan screenshot halaman utama website.
-
 ---
 
 # ✨ Fitur
