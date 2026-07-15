@@ -18,13 +18,6 @@ Menampilkan profil, pengalaman, sertifikat, keterampilan, serta proyek-proyek ya
 
 ---
 
-# 📸 Tampilan Website
-
-<p align="center">
-<img src="./public//portfolio-preview.png" width="100%">
-</p>
----
-
 # ✨ Fitur
 
 ✅ Responsive Design
@@ -132,21 +125,7 @@ npm run build
 
 # 👨‍💻 Tentang Saya
 
-Halo! Saya **Rayhan**, Fresh Graduate Teknik Informatika yang memiliki minat pada bidang **Front-End Development**, **Mobile Development**, dan **Fullstack Development**.
-
-Saya memiliki pengalaman mengembangkan aplikasi web menggunakan **React.js**, **Tailwind CSS**, dan **JavaScript**, serta aplikasi Android menggunakan **Kotlin**. Saya juga terbiasa menggunakan **Git** dan **GitHub** dalam pengembangan perangkat lunak secara kolaboratif.
-
----
-
-# 📊 GitHub Stats
-
-<div align="center">
-
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=rayhan204&show_icons=true&theme=tokyonight"/>
-
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=rayhan204&layout=compact&theme=tokyonight"/>
-
-</div>
+Halo! Saya **Rayhan**, Fresh Graduate Teknik Informatika yang memiliki minat pada bidang **Front-End Development**, **Mobile Development**, dan **Fullstack Development**. Saya memiliki pengalaman mengembangkan aplikasi web menggunakan **React.js**, **Tailwind CSS**, dan **JavaScript**, serta aplikasi Android menggunakan **Kotlin**. Saya juga terbiasa menggunakan **Git** dan **GitHub** dalam pengembangan perangkat lunak secara kolaboratif.
 
 ---
 
@@ -167,11 +146,3 @@ Saya memiliki pengalaman mengembangkan aplikasi web menggunakan **React.js**, **
 </a>
 
 </p>
-
----
-
-<div align="center">
-
-Made with ❤️ by **Rayhan**
-
-</div>
