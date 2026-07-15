@@ -4,6 +4,7 @@ import { SiGithub } from "react-icons/si";
 import SkinologyImg from '../assets/certificate-thumbnails/Skinology.png'
 import EngverseImg from '../assets/certificate-thumbnails/Engverse.png'
 import VisualisasiKerawananKriminalitasImg from '../assets/certificate-thumbnails/Visualisasi_Kriminalitas.png'
+import PortfolioImg from '../assets/certificate-thumbnails/portofolio-preview.png'
 
 const projectList = [
     {
@@ -21,6 +22,22 @@ const projectList = [
         image: SkinologyImg,
         githubUrl: 'https://github.com/rayhan204/Skinology',
         liveUrl: 'https://drive.google.com/file/d/13TwGuherweRgEFac7vW9T8dPmkTgZJqw/view',
+    },
+    {
+        title: 'Website Portofolio',
+        description:
+            'Website portofolio pribadi yang dikembangkan menggunakan React.js, Vite, dan Tailwind CSS untuk menampilkan profil, pengalaman, keterampilan, sertifikat, serta proyek yang pernah saya kerjakan. Dilengkapi desain responsif, animasi menggunakan AOS, integrasi LinkedIn dan GitHub, serta fitur unduh resume untuk memberikan pengalaman pengguna yang modern dan profesional.',
+        tags: [
+            'React',
+            'Vite',
+            'Tailwind CSS',
+            'JavaScript',
+            'AOS',
+            'React Icons',
+        ],
+        image: PortfolioImg,
+        githubUrl: 'https://github.com/rayhan204/Portofolio-Website-Rayhan',
+        liveUrl: 'https://portofolio-website-rayhan.vercel.app/',
     },
     {
         title: 'ENGVERSE',
@@ -72,7 +89,7 @@ const Projects = () => {
                     </h2>
                 </div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 gap-8">
                     {projectList.map((project, index) => (
                         <div
                             key={project.title}
