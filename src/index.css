@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #1cc8e0;
+    --primary-dark: #0e9fb3;
+    --bg-dark: #0a1120;
+    --bg-dark-2: #0d1626;
+    --bg-card: #101b30;
+  }
+
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-dark);
+    color: #e5e7eb;
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary-dark);
+    border-radius: 999px;
+  }
+}
+
+@layer utilities {
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  .text-primary {
+    color: var(--primary);
+  }
+  .border-primary {
+    border-color: var(--primary);
+  }
+  .bg-primary-dark {
+    background-color: var(--primary-dark);
+  }
+  .hover\:bg-primary-dark:hover {
+    background-color: var(--primary-dark);
+  }
+  .from-primary {
+    --tw-gradient-from: var(--primary);
+  }
+  .to-primary {
+    --tw-gradient-to: var(--primary);
+  }
+  .via-primary {
+    --tw-gradient-stops: var(--tw-gradient-from), var(--primary), var(--tw-gradient-to, rgba(255, 255, 255, 0));
+  }
+  .bg-dark {
+    background-color: var(--bg-dark);
+  }
+  .bg-dark-2 {
+    background-color: var(--bg-dark-2);
+  }
+  .bg-card {
+    background-color: var(--bg-card);
+  }
+
+  /* Organic blob shape used behind the hero portrait */
+  .blob-shape {
+    clip-path: path('M400,60 C540,60 700,150 720,300 C740,460 620,600 460,700 C300,780 100,760 40,600 C-20,440 20,230 150,120 C230,55 300,60 400,60 Z');
+  }
+
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-18px); }
+  }
+
+  .animate-wave {
+    animation: wave 2.2s ease-in-out infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+  }
+
+  @keyframes wave {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+  }
+}
