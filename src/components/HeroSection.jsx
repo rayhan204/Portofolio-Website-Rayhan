@@ -22,9 +22,9 @@ const HeroSection = () => {
                     </h1>
 
                     <p className="mt-6 text-gray-400 text-base sm:text-lg leading-relaxed max-w-xl">
-                        Fresh Graduate Teknik Informatika dengan minat di bidang Front-End dan
+                        Fresh Graduate Teknik Informatika dengan minat di bidang Fullstack Developer dan
                         Mobile Development. Berpengalaman membangun website modern menggunakan
-                        React.js, JavaScript, dan Tailwind CSS, serta mengembangkan aplikasi Android
+                        React.js, dan Tailwind CSS, PostgreSQL, SwaggerUI serta mengembangkan aplikasi Android
                         menggunakan Kotlin dan Android Studio. Saya selalu antusias mempelajari
                         teknologi baru dan menciptakan aplikasi yang responsif, fungsional, dan
                         mudah digunakan.

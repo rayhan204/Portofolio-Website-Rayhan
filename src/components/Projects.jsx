@@ -5,8 +5,28 @@ import SkinologyImg from '../assets/certificate-thumbnails/Skinology.png'
 import EngverseImg from '../assets/certificate-thumbnails/Engverse.png'
 import VisualisasiKerawananKriminalitasImg from '../assets/certificate-thumbnails/Visualisasi_Kriminalitas.png'
 import PortfolioImg from '../assets/certificate-thumbnails/portofolio-preview.png'
+import GoldVestImg from '../assets/certificate-thumbnails/GoldVest.png'
 
 const projectList = [
+    {
+        title: 'GoldVest',
+        description:
+            'GoldVest adalah aplikasi simulasi investasi emas digital yang saya kembangkan sebagai proyek Fullstack Developer untuk mempelajari pembangunan aplikasi fintech end-to-end. Saya membangun backend menggunakan Express.js, PostgreSQL, dan Prisma ORM dengan arsitektur berlapis (Layered Architecture), serta mengembangkan frontend menggunakan React.js, Vite, dan Tailwind CSS. Aplikasi ini dilengkapi fitur autentikasi JWT, dashboard, wallet, portfolio emas, transaksi beli dan jual emas, manajemen harga emas oleh admin, serta dokumentasi REST API menggunakan Swagger.',
+        tags: [
+            'React.js',
+            'Vite',
+            'Tailwind CSS',
+            'Node.js',
+            'Express.js',
+            'PostgreSQL',
+            'Prisma ORM',
+            'JWT',
+            'Swagger',
+        ],
+        image: GoldVestImg,
+        githubUrl: 'https://github.com/rayhan204/GoldVest',
+        liveUrl: '',
+    },
     {
         title: 'Skinology',
         description:
