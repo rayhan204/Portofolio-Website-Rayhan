@@ -25,7 +25,7 @@ const projectList = [
         ],
         image: GoldVestImg,
         githubUrl: 'https://github.com/rayhan204/GoldVest',
-        liveUrl: '',
+        liveUrl: 'https://gold-vest.vercel.app/login',
     },
     {
         title: 'Skinology',
