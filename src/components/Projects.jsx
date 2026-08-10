@@ -6,8 +6,32 @@ import EngverseImg from '../assets/certificate-thumbnails/Engverse.png'
 import VisualisasiKerawananKriminalitasImg from '../assets/certificate-thumbnails/Visualisasi_Kriminalitas.png'
 import PortfolioImg from '../assets/certificate-thumbnails/portofolio-preview.png'
 import GoldVestImg from '../assets/certificate-thumbnails/GoldVest.png'
+import WorkSphereImg from '../assets/certificate-thumbnails/WorkSphere.png'
 
 const projectList = [
+    {
+        title: 'WorkSphere HRIS',
+        description:
+            'WorkSphere HRIS adalah aplikasi Human Resource Information System yang saya kembangkan sebagai proyek Fullstack Developer untuk mempelajari pembangunan sistem manajemen sumber daya manusia secara end-to-end. Saya membangun backend menggunakan Node.js, Express.js, PostgreSQL, dan Prisma ORM dengan arsitektur berlapis (Layered Architecture) serta Feature-Based Architecture, kemudian mengembangkan frontend menggunakan React.js, Vite, dan Tailwind CSS. Aplikasi ini dilengkapi autentikasi JWT, Role-Based Access Control (RBAC) dengan role Admin, HR, dan Employee, manajemen user, department, position, employee, attendance, leave request, dashboard, dan reports. Backend juga dilengkapi validasi menggunakan Zod, dokumentasi REST API menggunakan Swagger, serta deployment menggunakan Railway, Neon PostgreSQL, dan Vercel.',
+        tags: [
+            'React.js',
+            'Vite',
+            'Tailwind CSS',
+            'Node.js',
+            'Express.js',
+            'PostgreSQL',
+            'Prisma ORM',
+            'JWT',
+            'Zod',
+            'Swagger',
+            'Railway',
+            'Neon',
+            'Vercel',
+        ],
+        image: WorkSphereImg,
+        githubUrl: 'https://github.com/rayhan204/WorkSphere-HRIS',
+        liveUrl: 'https://work-sphere-hris.vercel.app',
+        },
     {
         title: 'GoldVest',
         description:
