@@ -1,132 +1,144 @@
-import 'react'
-import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react'
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
-
-const KONTAK = [
-    {
-        icon: Mail,
-        label: 'Email',
-        nilai: 'rgozali48@gmail.com',
-        href: 'mailto:rgozali48@gmail.com',
-    },
-    {
-        icon: Phone,
-        label: 'WhatsApp',
-        nilai: '+62 821-3823-9907',
-        href: 'https://wa.me/6282138239907',
-    },
-    {
-        icon: MapPin,
-        label: 'Lokasi',
-        nilai: 'Kebumen, Jawa Tengah, Indonesia',
-    },
-]
-
-// Data sosial media
-const SOSMED = [
-    { icon: FaGithub, label: 'GitHub', url: 'https://github.com/rayhan204' },
-    { icon: FaLinkedin, label: 'LinkedIn', url: 'https://linkedin.com/in/rayhan-ray-022933244' },
-    { icon: FaInstagram, label: 'Instagram', url: 'https://instagram.com/rayhan_.z' },
-]
-
-const kelas = {
-    kartuKontak:
-        'flex items-center gap-4 p-4 rounded-2xl bg-dark-2 border border-white/10 hover:border-primary transition',
-    ikonSosial:
-        'w-12 h-12 rounded-full bg-dark-2 border border-white/10 hover:border-primary hover:text-primary text-gray-400 flex items-center justify-center transition',
-    tombolUtama:
-        'flex items-center justify-center gap-2 bg-primary text-slate-900 font-semibold rounded-full py-4 hover:scale-[1.02] transition',
-    tombolOutline:
-        'flex items-center justify-center gap-2 border border-primary text-primary font-semibold rounded-full py-4 hover:bg-primary hover:text-slate-900 transition',
-}
-
-const KartuKontak = ({ icon: Icon, label, nilai, href }) => (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={kelas.kartuKontak}>
-        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-            <Icon className="text-primary" size={20} />
-        </div>
-        <div>
-            <p className="text-sm text-gray-500">{label}</p>
-            <p className="text-white font-semibold">{nilai}</p>
-        </div>
-    </a>
-)
-
-const IkonSosial = ({ icon: Icon, label, url }) => (
-    <a href={url} target="_blank" rel="noopener noreferrer" aria-label={label} className={kelas.ikonSosial}>
-        <Icon size={20} />
-    </a>
-)
+import { useState } from 'react'
+import { Mail, MessageCircle, MapPin, ArrowUpRight, Copy, Check } from 'lucide-react'
+import { SiGithub } from 'react-icons/si'
+import { FaLinkedin } from 'react-icons/fa'
 
 const Contact = () => {
+    const [copied, setCopied] = useState(false)
+    const email = 'rgozali48@gmail.com'
+
+    const handleCopyEmail = () => {
+        navigator.clipboard.writeText(email)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+    }
+
     return (
-        <section id="contact" className="relative px-6 md:px-10 py-24 overflow-hidden">
-            <div className="pointer-events-none absolute bottom-0 left-1/3 w-125 h-100 bg-primary/10 blur-[120px] rounded-full" />
-
-            <div className="relative max-w-6xl mx-auto">
-                {/* Judul */}
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <span className="text-primary text-sm font-bold tracking-[0.2em] uppercase">
-                        Hubungi Saya
-                    </span>
-
-                    <h2 className="font-display mt-3 text-3xl sm:text-4xl font-extrabold text-white">
-                        Kontak
-                    </h2>
-
-                    <p className="mt-5 max-w-2xl mx-auto text-gray-400 leading-relaxed">
-                        Terima kasih telah mengunjungi portfolio saya. Jika Anda memiliki
-                        peluang kerja, proyek, atau ingin berdiskusi lebih lanjut, silakan
-                        hubungi saya melalui Email atau WhatsApp.
+        <section id="contact" className="py-20 md:py-24 border-b border-[#E5E5E5] bg-[#FFFFFF]">
+            <div className="editorial-container">
+                {/* Header Bagian */}
+                <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4 pb-10 border-b border-[#E5E5E5]">
+                    <div>
+                        <span className="section-label">07 / KONTAK</span>
+                        <h2 className="mt-2 text-2xl sm:text-3xl font-semibold text-[#171717] tracking-tight">
+                            Hubungi Saya
+                        </h2>
+                    </div>
+                    <p className="text-sm font-mono text-[#737373]">
+                        Komunikasi & Peluang Kolaborasi
                     </p>
                 </div>
 
-                <div className="bg-card border border-white/10 rounded-3xl p-8 lg:p-12" data-aos="zoom-in">
-                    <div className="grid md:grid-cols-2 gap-10">
-                        {/* Info Kontak */}
-                        <div>
-                            <h3 className="text-2xl font-bold text-white">Mari Terhubung 👋</h3>
+                {/* Kontainer Kontak Utama */}
+                <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    {/* Narasi Kiri */}
+                    <div className="lg:col-span-6 space-y-4">
+                        <p className="text-base text-[#171717] leading-relaxed">
+                            Saya terbuka untuk peluang kerja full-time, posisi magang rekayasa perangkat lunak, maupun kolaborasi proyek web dan aplikasi mobile.
+                        </p>
+                        <p className="text-sm text-[#737373] leading-relaxed">
+                            Silakan hubungi saya melalui email, pesan WhatsApp, atau terhubung melalui LinkedIn. Saya merespons pertanyaan profesional dan peluang rekayasa perangkat lunak dengan cepat.
+                        </p>
 
-                            <p className="text-gray-400 mt-3">
-                                Saya selalu terbuka untuk peluang baru, kolaborasi, maupun
-                                diskusi mengenai Web Development dan Android Development.
-                            </p>
+                        <div className="pt-4 flex items-center gap-2 text-xs font-mono text-[#737373]">
+                            <MapPin size={14} className="text-[#A3A3A3]" />
+                            <span>Kebumen, Jawa Tengah, Indonesia (Terbuka untuk Remote / Hybrid)</span>
+                        </div>
+                    </div>
 
-                            <div className="mt-8 space-y-5">
-                                {KONTAK.map((item) => (
-                                    <KartuKontak key={item.label} {...item} />
-                                ))}
+                    {/* Kartu Aksi Kanan */}
+                    <div className="lg:col-span-6 space-y-3">
+                        {/* Kartu Email */}
+                        <div className="border border-[#E5E5E5] bg-[#FAFAF9] rounded-lg p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div>
+                                <span className="text-[11px] font-mono uppercase text-[#A3A3A3] tracking-wider block">
+                                    Alamat Email
+                                </span>
+                                <a
+                                    href={`mailto:${email}`}
+                                    className="text-base font-medium text-[#171717] hover:text-[#315E8C] transition-colors mt-0.5 inline-block"
+                                >
+                                    {email}
+                                </a>
                             </div>
 
-                            <div className="flex gap-4 mt-8">
-                                {SOSMED.map((item) => (
-                                    <IkonSosial key={item.label} {...item} />
-                                ))}
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={handleCopyEmail}
+                                    className="inline-flex items-center gap-1.5 text-xs font-medium text-[#171717] hover:bg-white border border-[#E5E5E5] px-3 py-1.5 rounded-md transition-colors"
+                                >
+                                    {copied ? (
+                                        <>
+                                            <Check size={13} className="text-emerald-600" />
+                                            <span>Tersalin</span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Copy size={13} className="text-[#737373]" />
+                                            <span>Salin</span>
+                                        </>
+                                    )}
+                                </button>
+
+                                <a
+                                    href={`mailto:${email}`}
+                                    className="inline-flex items-center gap-1.5 text-xs font-medium text-white bg-[#171717] hover:bg-[#315E8C] px-3 py-1.5 rounded-md transition-colors"
+                                >
+                                    <Mail size={13} />
+                                    <span>Kirim Email</span>
+                                </a>
                             </div>
                         </div>
 
-                        {/* Ajakan Bertindak */}
-                        <div className="flex flex-col justify-center rounded-2xl bg-dark-2 border border-white/10 p-8">
-                            <h3 className="text-2xl font-bold text-white">
-                                Tertarik untuk bekerja sama?
-                            </h3>
-
-                            <p className="mt-4 text-gray-400 leading-relaxed">
-                                Klik salah satu tombol di bawah ini untuk langsung
-                                menghubungi saya.
-                            </p>
-
-                            <div className="mt-8 flex flex-col gap-4">
-                                <a href={KONTAK[0].href} className={kelas.tombolUtama}>
-                                    <Send size={18} />
-                                    Kirim Email
-                                </a>
-
-                                <a href={KONTAK[1].href} target="_blank" rel="noopener noreferrer" className={kelas.tombolOutline}>
-                                    <MessageCircle size={18} />
-                                    Chat WhatsApp
-                                </a>
+                        {/* WhatsApp */}
+                        <div className="border border-[#E5E5E5] bg-[#FAFAF9] rounded-lg p-5 flex items-center justify-between">
+                            <div>
+                                <span className="text-[11px] font-mono uppercase text-[#A3A3A3] tracking-wider block">
+                                    Pesan WhatsApp
+                                </span>
+                                <span className="text-base font-medium text-[#171717]">
+                                    +62 821-3823-9907
+                                </span>
                             </div>
+                            <a
+                                href="https://wa.me/6282138239907"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 text-xs font-medium text-[#171717] hover:text-[#315E8C] border border-[#E5E5E5] hover:border-[#315E8C] bg-white px-3 py-1.5 rounded-md transition-colors"
+                            >
+                                <MessageCircle size={13} />
+                                <span>Kirim Pesan</span>
+                                <ArrowUpRight size={13} className="text-[#A3A3A3]" />
+                            </a>
+                        </div>
+
+                        {/* Tautan Media Sosial */}
+                        <div className="pt-2 grid grid-cols-2 gap-3">
+                            <a
+                                href="https://github.com/rayhan204"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="border border-[#E5E5E5] bg-white hover:border-[#171717] p-3.5 rounded-lg flex items-center justify-between transition-colors group"
+                            >
+                                <span className="inline-flex items-center gap-2 text-xs font-medium text-[#171717]">
+                                    <SiGithub size={15} />
+                                    <span>github.com/rayhan204</span>
+                                </span>
+                                <ArrowUpRight size={13} className="text-[#A3A3A3] group-hover:text-[#171717]" />
+                            </a>
+
+                            <a
+                                href="https://www.linkedin.com/in/rayhan-ray-022933244/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="border border-[#E5E5E5] bg-white hover:border-[#315E8C] p-3.5 rounded-lg flex items-center justify-between transition-colors group"
+                            >
+                                <span className="inline-flex items-center gap-2 text-xs font-medium text-[#171717]">
+                                    <FaLinkedin size={15} className="text-[#315E8C]" />
+                                    <span>Profil LinkedIn</span>
+                                </span>
+                                <ArrowUpRight size={13} className="text-[#A3A3A3] group-hover:text-[#315E8C]" />
+                            </a>
                         </div>
                     </div>
                 </div>

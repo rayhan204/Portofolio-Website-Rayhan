@@ -1,210 +1,293 @@
-import 'react'
-import { ExternalLink } from "lucide-react";
-import { SiGithub } from "react-icons/si";
+import { useState } from 'react'
+import { ExternalLink, ArrowUpRight, FolderGit2, Smartphone } from 'lucide-react'
+import { SiGithub } from 'react-icons/si'
+
+import WorkSphereImg from '../assets/certificate-thumbnails/WorkSphere.png'
+import GoldVestImg from '../assets/certificate-thumbnails/GoldVest.png'
+import VisualisasiKerawananKriminalitasImg from '../assets/certificate-thumbnails/Visualisasi_Kriminalitas.png'
 import SkinologyImg from '../assets/certificate-thumbnails/Skinology.png'
 import EngverseImg from '../assets/certificate-thumbnails/Engverse.png'
-import VisualisasiKerawananKriminalitasImg from '../assets/certificate-thumbnails/Visualisasi_Kriminalitas.png'
-import PortfolioImg from '../assets/certificate-thumbnails/portofolio-preview.png'
-import GoldVestImg from '../assets/certificate-thumbnails/GoldVest.png'
-import WorkSphereImg from '../assets/certificate-thumbnails/WorkSphere.png'
 
-const projectList = [
+const primaryProjects = [
     {
-        title: 'WorkSphere HRIS',
+        id: 'traxtion',
+        title: 'Ekosistem TraXtion',
+        category: 'Ekosistem Field-Sales Enterprise',
+        role: 'Frontend Developer Intern (Mobile & Web)',
+        period: 'September 2026 – Sekarang',
         description:
-            'WorkSphere HRIS adalah aplikasi Human Resource Information System yang saya kembangkan sebagai proyek Fullstack Developer untuk mempelajari pembangunan sistem manajemen sumber daya manusia secara end-to-end. Saya membangun backend menggunakan Node.js, Express.js, PostgreSQL, dan Prisma ORM dengan arsitektur berlapis (Layered Architecture) serta Feature-Based Architecture, kemudian mengembangkan frontend menggunakan React.js, Vite, dan Tailwind CSS. Aplikasi ini dilengkapi autentikasi JWT, Role-Based Access Control (RBAC) dengan role Admin, HR, dan Employee, manajemen user, department, position, employee, attendance, leave request, dashboard, dan reports. Backend juga dilengkapi validasi menggunakan Zod, dokumentasi REST API menggunakan Swagger, serta deployment menggunakan Railway, Neon PostgreSQL, dan Vercel.',
-        tags: [
-            'React.js',
-            'Vite',
-            'Tailwind CSS',
-            'Node.js',
-            'Express.js',
-            'PostgreSQL',
-            'Prisma ORM',
-            'JWT',
-            'Zod',
-            'Swagger',
-            'Railway',
-            'Neon',
-            'Vercel',
+            'Ekosistem aplikasi field-sales skala produksi yang dikembangkan di Urbansolv. Mencakup aplikasi mobile React Native untuk agen lapangan serta aplikasi web Next.js untuk pemantauan aktivitas penjualan dan administrasi.',
+        tags: ['React Native', 'Expo', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Figma', 'REST API'],
+        image: null,
+        isEnterprise: true,
+        links: [
+            {
+                label: 'Info Urbansolv',
+                url: 'https://urbansolv.com',
+                isExternal: true,
+            },
         ],
+    },
+    {
+        id: 'worksphere',
+        title: 'WorkSphere HRIS',
+        category: 'Human Resource Information System',
+        role: 'Fullstack Developer',
+        period: '2024',
+        description:
+            'Aplikasi sistem informasi SDM end-to-end dengan arsitektur berlapis. Dilengkapi autentikasi JWT, Role-Based Access Control (Admin, HR, Karyawan), manajemen departemen, pencatatan absensi, pengajuan cuti, serta dokumentasi REST API Swagger.',
+        tags: ['React.js', 'Vite', 'Node.js', 'Express.js', 'PostgreSQL', 'Prisma ORM', 'JWT', 'Zod', 'Swagger'],
         image: WorkSphereImg,
         githubUrl: 'https://github.com/rayhan204/WorkSphere-HRIS',
         liveUrl: 'https://work-sphere-hris.vercel.app',
-        },
+    },
     {
+        id: 'goldvest',
         title: 'GoldVest',
+        category: 'Simulasi Investasi Emas Digital',
+        role: 'Fullstack Developer',
+        period: '2024',
         description:
-            'GoldVest adalah aplikasi simulasi investasi emas digital yang saya kembangkan sebagai proyek Fullstack Developer untuk mempelajari pembangunan aplikasi fintech end-to-end. Saya membangun backend menggunakan Express.js, PostgreSQL, dan Prisma ORM dengan arsitektur berlapis (Layered Architecture), serta mengembangkan frontend menggunakan React.js, Vite, dan Tailwind CSS. Aplikasi ini dilengkapi fitur autentikasi JWT, dashboard, wallet, portfolio emas, transaksi beli dan jual emas, manajemen harga emas oleh admin, serta dokumentasi REST API menggunakan Swagger.',
-        tags: [
-            'React.js',
-            'Vite',
-            'Tailwind CSS',
-            'Node.js',
-            'Express.js',
-            'PostgreSQL',
-            'Prisma ORM',
-            'JWT',
-            'Swagger',
-        ],
+            'Aplikasi simulasi investasi emas digital dengan kalkulasi portofolio real-time, transaksi beli dan jual emas, kontrol harga emas oleh admin, dan autentikasi aman dengan arsitektur berlapis.',
+        tags: ['React.js', 'Vite', 'Node.js', 'Express.js', 'PostgreSQL', 'Prisma ORM', 'JWT', 'Swagger', 'Tailwind CSS'],
         image: GoldVestImg,
         githubUrl: 'https://github.com/rayhan204/GoldVest',
         liveUrl: 'https://gold-vest.vercel.app',
     },
     {
-        title: 'Skinology',
+        id: 'crime-hotspot',
+        title: 'Crime Hotspot Mapping System',
+        category: 'Aplikasi Web Analisis Spasial',
+        role: 'Proyek Skripsi S1',
+        period: '2024 – 2025',
         description:
-            'Skinology adalah proyek Capstone Bangkit Academy yang dikembangkan melalui kolaborasi lintas fungsi antara tim Mobile Development, Machine Learning, dan Cloud Computing. Saya berperan sebagai Mobile Developer dengan membangun aplikasi Android menggunakan Kotlin, mengintegrasikan CameraX, Retrofit, dan REST API untuk menghadirkan fitur deteksi jenis kulit berbasis AI secara real-time.',
-        tags: [
-            'Kotlin',
-            'Android Studio',
-            'TensorFlow',
-            'Retrofit',
-            'CameraX',
-            'Google Cloud',
-        ],
+            'Aplikasi web geospasial untuk memvisualisasikan tingkat kerawanan kriminalitas pencurian di Kabupaten Purbalingga menggunakan metode Kernel Density Estimation (KDE) dan analisis hotspot spasial interaktif.',
+        tags: ['Python', 'Streamlit', 'Folium', 'GeoPandas', 'QGIS', 'Analisis Spasial KDE'],
+        image: VisualisasiKerawananKriminalitasImg,
+        githubUrl: 'https://github.com/rayhan204/Project_Skripsi_Visualisasi_Kerawanan_Kriminalitas_Pencurian_2025',
+        liveUrl: 'https://projectskripsivisualisasikerawanankriminalitaspencurian2025-6q.streamlit.app/',
+    },
+]
+
+const secondaryProjects = [
+    {
+        title: 'Skinology',
+        category: 'Aplikasi Mobile Berbasis AI',
+        role: 'Mobile Developer (Capstone Bangkit)',
+        description:
+            'Aplikasi Android untuk deteksi jenis kulit berbasis kecerdasan buatan, mengintegrasikan CameraX dan model TensorFlow melalui endpoint RESTful Retrofit.',
+        tags: ['Kotlin', 'Android Studio', 'CameraX', 'Retrofit', 'TensorFlow', 'GCP'],
         image: SkinologyImg,
         githubUrl: 'https://github.com/rayhan204/Skinology',
         liveUrl: 'https://drive.google.com/file/d/13TwGuherweRgEFac7vW9T8dPmkTgZJqw/view',
     },
     {
-        title: 'Website Portofolio',
-        description:
-            'Website portofolio pribadi yang dikembangkan menggunakan React.js, Vite, dan Tailwind CSS untuk menampilkan profil, pengalaman, keterampilan, sertifikat, serta proyek yang pernah saya kerjakan. Dilengkapi desain responsif, animasi menggunakan AOS, integrasi LinkedIn dan GitHub, serta fitur unduh resume untuk memberikan pengalaman pengguna yang modern dan profesional.',
-        tags: [
-            'React',
-            'Vite',
-            'Tailwind CSS',
-            'JavaScript',
-            'AOS',
-            'React Icons',
-        ],
-        image: PortfolioImg,
-        githubUrl: 'https://github.com/rayhan204/Portofolio-Website-Rayhan',
-        liveUrl: 'https://portofolio-website-rayhan.vercel.app/',
-    },
-    {
         title: 'ENGVERSE',
+        category: 'Platform Pembelajaran Interaktif',
+        role: 'Fullstack Developer (Coding Camp DBS)',
         description:
-            'ENGVERSE merupakan proyek Capstone Coding Camp DBS Foundation yang dikembangkan oleh tim lintas peran menggunakan workflow kolaboratif berbasis Git dan GitHub. Saya berperan sebagai Fullstack Developer dengan mengembangkan antarmuka pengguna (frontend), membangun layanan backend dan REST API, mengintegrasikan database, serta memastikan integrasi antar fitur berjalan dengan baik untuk menghadirkan platform pembelajaran TOEFL ITP yang interaktif dan adaptif.',
-        tags: [
-            'React',
-            'Express.js',
-            'Node.js',
-            'MySQL',
-            'JavaScript',
-            'Fullstack',
-        ],
+            'Platform persiapan tes TOEFL ITP interaktif dengan latihan terstruktur, bank soal, dan pemantauan skor.',
+        tags: ['React.js', 'Express.js', 'Node.js', 'MySQL', 'REST API'],
         image: EngverseImg,
         githubUrl: 'https://github.com/rayhan204/engverse-app',
-        liveUrl: '#',
-    },
-    {
-        title: 'Visualisasi Kerawanan Kriminalitas Pencurian',
-        description:
-            'Aplikasi web untuk memvisualisasikan tingkat kerawanan kriminalitas pencurian di Kabupaten Purbalingga menggunakan metode Kernel Density Estimation (KDE). Dibangun dengan Python, Streamlit, Folium, dan GeoPandas untuk menghasilkan peta interaktif serta analisis hotspot kriminalitas.',
-        tags: [
-            'Python',
-            'Streamlit',
-            'Folium',
-            'GeoPandas',
-            'QGIS',
-            'KDE',
-        ],
-        image: VisualisasiKerawananKriminalitasImg,
-        githubUrl:
-            'https://github.com/rayhan204/Project_Skripsi_Visualisasi_Kerawanan_Kriminalitas_Pencurian_2025',
-        liveUrl: 'https://projectskripsivisualisasikerawanankriminalitaspencurian2025-6q.streamlit.app/',
+        liveUrl: null,
     },
 ]
 
 const Projects = () => {
-    return (
-        <section id="projects" className="relative px-6 md:px-10 py-24 overflow-hidden">
-            <div className="pointer-events-none absolute top-0 right-1/4 w-125 h-100 bg-primary/10 blur-[120px] rounded-full" />
+    const [showMore, setShowMore] = useState(false)
 
-            <div className="relative max-w-6xl mx-auto">
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <span className="text-primary text-sm font-bold tracking-[0.2em] uppercase">
-                        My Work
-                    </span>
-                    <h2 className="font-display mt-3 text-3xl sm:text-4xl font-extrabold text-white">
-                        Projek Saya
-                    </h2>
+    return (
+        <section id="projects" className="py-20 md:py-24 border-b border-[#E5E5E5] bg-[#FFFFFF]">
+            <div className="editorial-container">
+                {/* Header Bagian */}
+                <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4 pb-10 border-b border-[#E5E5E5]">
+                    <div>
+                        <span className="section-label">03 / PROYEK</span>
+                        <h2 className="mt-2 text-2xl sm:text-3xl font-semibold text-[#171717] tracking-tight">
+                            Proyek Rekayasa Unggulan
+                        </h2>
+                    </div>
+                    <p className="text-sm font-mono text-[#737373]">
+                        Aplikasi Produksi & Portofolio Teknis
+                    </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                    {projectList.map((project, index) => (
+                {/* Grid Proyek Utama */}
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {primaryProjects.map((project) => (
                         <div
-                            key={project.title}
-                            data-aos="fade-up"
-                            data-aos-delay={index * 80}
-                            className="group bg-card border border-white/5 hover:border-primary/60 rounded-2xl overflow-hidden flex flex-col transition-colors duration-300"
+                            key={project.id}
+                            className="group flex flex-col bg-[#FAFAF9] border border-[#E5E5E5] rounded-lg overflow-hidden transition-all duration-200 hover:border-[#315E8C] hover:bg-white"
                         >
-                            {/* Thumbnail */}
-                            <div className="relative h-52 overflow-hidden">
-                                {project.image ? (
+                            {/* Visual Proyek */}
+                            {project.image ? (
+                                <div className="aspect-16/9 w-full overflow-hidden border-b border-[#E5E5E5] bg-[#F5F5F5]">
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                        className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
                                     />
-                                ) : (
-                                    <div className="w-full h-full bg-linear-to-br from-primary/20 via-dark-2 to-dark-2 flex items-center justify-center">
-                                        <span className="font-display text-3xl font-extrabold text-white/10">
-                                            {project.title
-                                                .split(" ")
-                                                .map((w) => w[0])
-                                                .join("")
-                                                .slice(0, 3)}
-                                        </span>
-                                    </div>
-                                )}
-
-                                <div className="absolute inset-0 bg-black/50 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                                    <a
-                                        href={project.githubUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-10 h-10 rounded-full bg-dark flex items-center justify-center text-white hover:text-primary"
-                                    >
-                                        <SiGithub size={18} />
-                                    </a>
-
-                                    <a
-                                        href={project.liveUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-10 h-10 rounded-full bg-dark flex items-center justify-center text-white hover:text-primary"
-                                    >
-                                        <ExternalLink size={18} />
-                                    </a>
                                 </div>
-                            </div>
+                            ) : (
+                                <div className="aspect-16/9 w-full border-b border-[#E5E5E5] bg-[#F5F5F5] p-6 flex flex-col justify-between">
+                                    <div className="flex items-center justify-between text-xs font-mono text-[#737373]">
+                                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm bg-white border border-[#E5E5E5]">
+                                            <Smartphone size={13} className="text-[#315E8C]" />
+                                            Platform Mobile & Web
+                                        </span>
+                                        <span>Produksi</span>
+                                    </div>
+                                    <div className="text-center py-4">
+                                        <h4 className="text-xl font-semibold text-[#171717]">TraXtion</h4>
+                                        <p className="text-xs text-[#737373] mt-1">Ekosistem Aplikasi Field-Sales</p>
+                                    </div>
+                                    <div className="text-xs font-mono text-[#A3A3A3] text-right">
+                                        PT Multimedia Solusi Prima
+                                    </div>
+                                </div>
+                            )}
 
-                            {/* Content */}
+                            {/* Konten Kartu */}
                             <div className="p-6 flex flex-col flex-1">
-                                <h3 className="font-display text-lg font-bold text-white">
+                                <div className="flex items-baseline justify-between gap-2">
+                                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#315E8C] font-medium">
+                                        {project.category}
+                                    </span>
+                                    <span className="text-xs font-mono text-[#A3A3A3]">
+                                        {project.period}
+                                    </span>
+                                </div>
+
+                                <h3 className="mt-2 text-lg sm:text-xl font-semibold text-[#171717]">
                                     {project.title}
                                 </h3>
-                                <p className="text-sm text-gray-400 mt-2 leading-relaxed flex-1">
+
+                                <p className="mt-2 text-sm text-[#737373] leading-relaxed flex-1">
                                     {project.description}
                                 </p>
 
-                                <div className="flex flex-wrap gap-2 mt-4">
+                                {/* Tag Teknologi */}
+                                <div className="mt-5 flex flex-wrap gap-1.5">
                                     {project.tags.map((tag) => (
                                         <span
                                             key={tag}
-                                            className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full"
+                                            className="text-[11px] font-mono text-[#737373] bg-white border border-[#E5E5E5] px-2 py-0.5 rounded-sm"
                                         >
                                             {tag}
                                         </span>
                                     ))}
                                 </div>
+
+                                {/* Link Tautan */}
+                                <div className="mt-6 pt-4 border-t border-[#E5E5E5] flex items-center gap-4">
+                                    {project.githubUrl && (
+                                        <a
+                                            href={project.githubUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#171717] hover:text-[#315E8C] transition-colors"
+                                        >
+                                            <SiGithub size={14} />
+                                            <span>Kode Sumber</span>
+                                            <ArrowUpRight size={13} className="text-[#A3A3A3]" />
+                                        </a>
+                                    )}
+
+                                    {project.liveUrl && (
+                                        <a
+                                            href={project.liveUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#171717] hover:text-[#315E8C] transition-colors"
+                                        >
+                                            <ExternalLink size={14} />
+                                            <span>Aplikasi Live</span>
+                                            <ArrowUpRight size={13} className="text-[#A3A3A3]" />
+                                        </a>
+                                    )}
+
+                                    {project.isEnterprise && (
+                                        <span className="text-xs font-mono text-[#737373]">
+                                            Produk Internal Enterprise (Proprietary)
+                                        </span>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     ))}
                 </div>
+
+                {/* Tombol Proyek Tambahan */}
+                <div className="mt-12 text-center">
+                    <button
+                        onClick={() => setShowMore(!showMore)}
+                        className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#171717] hover:text-[#315E8C] border border-[#E5E5E5] hover:border-[#315E8C] bg-[#FAFAF9] px-4 py-2 rounded-md transition-colors"
+                    >
+                        <FolderGit2 size={14} />
+                        <span>{showMore ? 'Sembunyikan Proyek Tambahan' : 'Tampilkan Proyek Tambahan (Skinology, ENGVERSE)'}</span>
+                    </button>
+                </div>
+
+                {/* Daftar Proyek Tambahan */}
+                {showMore && (
+                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 pt-8 border-t border-[#E5E5E5] animate-in fade-in duration-200">
+                        {secondaryProjects.map((project) => (
+                            <div
+                                key={project.title}
+                                className="bg-[#FAFAF9] border border-[#E5E5E5] rounded-lg p-5 flex flex-col justify-between"
+                            >
+                                <div>
+                                    <div className="flex items-center justify-between text-xs font-mono text-[#737373]">
+                                        <span className="text-[#315E8C]">{project.category}</span>
+                                        <span>{project.role}</span>
+                                    </div>
+                                    <h4 className="mt-2 text-base font-semibold text-[#171717]">
+                                        {project.title}
+                                    </h4>
+                                    <p className="mt-2 text-xs text-[#737373] leading-relaxed">
+                                        {project.description}
+                                    </p>
+                                    <div className="mt-3 flex flex-wrap gap-1">
+                                        {project.tags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="text-[10px] font-mono text-[#737373] bg-white border border-[#E5E5E5] px-1.5 py-0.5 rounded-xs"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="mt-4 pt-3 border-t border-[#E5E5E5] flex items-center gap-4 text-xs font-medium">
+                                    {project.githubUrl && (
+                                        <a
+                                            href={project.githubUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1 text-[#171717] hover:text-[#315E8C]"
+                                        >
+                                            <SiGithub size={13} />
+                                            <span>Repositori</span>
+                                        </a>
+                                    )}
+                                    {project.liveUrl && (
+                                        <a
+                                            href={project.liveUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1 text-[#171717] hover:text-[#315E8C]"
+                                        >
+                                            <ExternalLink size={13} />
+                                            <span>Pratinjau Proyek</span>
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
         </section>
     )

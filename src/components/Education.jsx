@@ -1,89 +1,83 @@
-import 'react'
-import { GraduationCap, CalendarDays } from 'lucide-react'
+import { Calendar, Award } from 'lucide-react'
 
-const educationList = [
+const educationHistory = [
     {
-        degree: 'S1 - Teknik Informatika',
-        institution: 'Universitas Muhammadiyah Purwokerto, GPA: 3.73/4.00',
-        period: 'Agustus 2022 - Mei 2026',
-        description:
-            'Mempelajari pengembangan perangkat lunak, algoritma, struktur data, basis data, dan rekayasa perangkat lunak. Berfokus pada pengembangan aplikasi Full Stack menggunakan React.js, Node.js, dan MySQL, serta pengembangan aplikasi Android menggunakan Kotlin dan Android Studio. Selama perkuliahan juga mengerjakan berbagai proyek pengembangan aplikasi web dan mobile sebagai bagian dari pembelajaran maupun pengembangan portofolio.',
+        institution: 'Universitas Muhammadiyah Purwokerto',
+        degree: 'S1 - Teknik Informatika (Sarjana Komputer)',
+        period: '2022 – 2026',
+        gpa: '3.73 / 4.00',
+        highlights:
+            'Berfokus pada rekayasa perangkat lunak, pengembangan aplikasi web, dan arsitektur mobile. Mempelajari struktur data, algoritma, sistem basis data, serta implementasi sistem fullstack menggunakan React, Node.js, dan Android.',
+        isPrimary: true,
     },
     {
-        degree: 'Sekolah Menengah Atas',
         institution: 'SMA Negeri 1 Ayah',
-        period: '2019 - 2022',
-        description:
-            'Menempuh pendidikan pada jurusan MIPA yang membangun dasar kemampuan berpikir logis, analitis, dan pemecahan masalah. Mulai mengenal dunia teknologi dan tertarik mempelajari pemrograman sebagai bekal untuk melanjutkan pendidikan di bidang Informatika.',
-    },
-    {
-        degree: 'Sekolah Menengah Pertama',
-        institution: 'SMP Negeri 1 Buayan',
-        period: '2016 - 2019',
-        description:
-            'Menyelesaikan pendidikan dasar dengan mengembangkan kemampuan akademik serta mulai mengenal penggunaan komputer dan teknologi sebagai sarana belajar.',
+        degree: 'MIPA (Matematika dan Ilmu Pengetahuan Alam)',
+        period: '2019 – 2022',
+        gpa: null,
+        highlights:
+            'Membangun fondasi yang kuat dalam pemikiran logis, analitis, dan pemecahan masalah, disertai eksplorasi mandiri awal di bidang pemrograman komputer.',
+        isPrimary: false,
     },
 ]
 
 const Education = () => {
     return (
-        <section id="education" className="relative px-6 md:px-10 py-24 overflow-hidden">
-            <div className="pointer-events-none absolute -top-20 right-0 w-125 h-100 bg-primary/10 blur-[120px] rounded-full" />
-
-            <div className="relative max-w-5xl mx-auto">
-                <div className="text-center mb-16" data-aos="fade-up">
-                    <span className="text-primary text-sm font-bold tracking-[0.2em] uppercase">
-                        Learning Path
-                    </span>
-                    <h2 className="font-display mt-3 text-3xl sm:text-4xl font-extrabold text-white">
-                        Pendidikan
-                    </h2>
+        <section id="education" className="py-20 md:py-24 border-b border-[#E5E5E5] bg-[#FFFFFF]">
+            <div className="editorial-container">
+                {/* Header Bagian */}
+                <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4 pb-10 border-b border-[#E5E5E5]">
+                    <div>
+                        <span className="section-label">05 / PENDIDIKAN</span>
+                        <h2 className="mt-2 text-2xl sm:text-3xl font-semibold text-[#171717] tracking-tight">
+                            Riwayat Pendidikan
+                        </h2>
+                    </div>
+                    <p className="text-sm font-mono text-[#737373]">
+                        Kualifikasi Akademik Formal
+                    </p>
                 </div>
 
-                <div className="relative">
-                    {/* Vertical line */}
-                    <div className="absolute left-6.75 md:left-1/2 top-2 bottom-2 w-px bg-white/10 md:-translate-x-1/2" />
-
-                    <div className="flex flex-col gap-10 md:gap-14">
-                        {educationList.map((item, index) => {
-                            const isLeft = index % 2 === 0;
-                            return (
-                                <div
-                                    key={item.degree}
-                                    data-aos={isLeft ? 'fade-right' : 'fade-left'}
-                                    className={`relative flex items-start md:items-center gap-6 md:gap-0 ${
-                                        isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
-                                    }`}
-                                >
-                                    {/* Marker */}
-                                    <div className="relative z-10 shrink-0 w-14 h-14 rounded-full bg-dark-2 border-2 border-primary flex items-center justify-center">
-                                        <GraduationCap className="text-primary" size={22} />
-                                    </div>
-
-                                    {/* Card */}
-                                    <div
-                                        className={`bg-card border border-white/5 rounded-2xl p-6 flex-1 md:w-[calc(50%-3.5rem)] ${
-                                            isLeft ? 'md:mr-auto' : 'md:ml-auto'
-                                        }`}
-                                    >
-                                        <div className="flex items-center gap-2 text-primary text-xs font-semibold mb-2">
-                                            <CalendarDays size={14} />
-                                            {item.period}
-                                        </div>
-                                        <h3 className="font-display text-lg font-bold text-white">
-                                            {item.degree}
-                                        </h3>
-                                        <p className="text-sm text-gray-400 font-semibold mt-1">
+                {/* Tata Letak Bersih & Rapi */}
+                <div className="mt-12 space-y-8">
+                    {educationHistory.map((item) => (
+                        <div
+                            key={item.institution}
+                            className={`border rounded-lg p-6 sm:p-8 transition-colors ${
+                                item.isPrimary
+                                    ? 'bg-[#FAFAF9] border-[#E5E5E5] hover:border-[#315E8C]'
+                                    : 'bg-white border-[#E5E5E5] text-[#737373]'
+                            }`}
+                        >
+                            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 pb-4 border-b border-[#E5E5E5]">
+                                <div>
+                                    <div className="flex items-center gap-2.5 flex-wrap">
+                                        <h3 className="text-lg sm:text-xl font-semibold text-[#171717]">
                                             {item.institution}
-                                        </p>
-                                        <p className="text-sm text-gray-400 mt-3 leading-relaxed">
-                                            {item.description}
-                                        </p>
+                                        </h3>
+                                        {item.gpa && (
+                                            <span className="inline-flex items-center gap-1 text-xs font-mono font-medium px-2 py-0.5 rounded-sm bg-white border border-[#E5E5E5] text-[#171717]">
+                                                <Award size={13} className="text-[#315E8C]" />
+                                                IPK: {item.gpa}
+                                            </span>
+                                        )}
                                     </div>
+                                    <p className="mt-1 text-sm sm:text-base font-medium text-[#171717]">
+                                        {item.degree}
+                                    </p>
                                 </div>
-                            );
-                        })}
-                    </div>
+
+                                <div className="flex items-center gap-1.5 text-xs font-mono text-[#737373] shrink-0">
+                                    <Calendar size={13} className="text-[#A3A3A3]" />
+                                    <span>{item.period}</span>
+                                </div>
+                            </div>
+
+                            <p className="mt-4 text-sm text-[#737373] leading-relaxed max-w-3xl">
+                                {item.highlights}
+                            </p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
